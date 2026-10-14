@@ -1,0 +1,41 @@
+const jwt = require("jsonwebtoken");
+
+function authMiddleware(req, res, next) {
+  try {
+    const authHeader = req.headers.authorization;
+
+    console.log("Authorization recebido:", authHeader);
+
+    if (!authHeader) {
+      return res.status(401).json({
+        message: "Token não informado.",
+      });
+    }
+
+    const token = authHeader.split(" ")[1];
+
+    console.log("Token recebido.");
+
+    if (!token) {
+      return res.status(401).json({
+        message: "Token não informado.",
+      });
+    }
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+    console.log("Token decodificado:");
+
+    req.usuario = decoded;
+
+    next();
+  } catch (error) {
+    console.error("Erro ao verificar JWT:", error);
+
+    return res.status(401).json({
+      message: "Token inválido ou expirado.",
+    });
+  }
+}
+
+module.exports = authMiddleware;
