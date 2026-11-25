@@ -39,3 +39,4 @@ out/
 *.postman_environment
 *.postman_dump.json
 .postman
+postman

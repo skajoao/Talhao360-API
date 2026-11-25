@@ -12,7 +12,7 @@
     "nodemon": "^3.1.14",
     "sequelize-cli": "^6.6.5"
   },
-  "name": "backend",
+  "name": "Talhão360-API",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {

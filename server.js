@@ -15,10 +15,19 @@ const Usuario = require("./models/Usuario");
 
 const authRoutes = require("./src/config/routes/auth/authRoutes");
 
-const talhaoRoutes = require("./src/config/routes/talhaoRoutes")
+const talhaoRoutes = require("./src/config/routes/talhaoRoutes");
+
+const insumoRoutes = require("./src/config/routes/insumoRoutes");
+
+const producaoRoutes = require("./src/config/routes/producaoRoutes");
+
+const aplicacaoRoutes = require("./src/config/routes/aplicacaoRoutes");
 
 app.use("/auth", authRoutes);
-app.use("/talhoes", talhaoRoutes)
+app.use("/talhoes", talhaoRoutes);
+app.use("/insumos", insumoRoutes);
+app.use("/producoes", producaoRoutes);
+app.use("/aplicacoes", aplicacaoRoutes);
 
 ////////////////////////////////////////////////////////////////////
 

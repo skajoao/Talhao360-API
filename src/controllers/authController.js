@@ -107,9 +107,11 @@ async function login(req, res) {
 }
 
 async function me(req, res) {
+  const usuario = await Usuario.findByPk(req.usuario.id);
+
   return res.status(200).json({
     message: "Usuário autenticado!",
-    usuario: req.usuario,
+    usuario,
   });
 }
 

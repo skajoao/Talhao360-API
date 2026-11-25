@@ -4,8 +4,6 @@ function authMiddleware(req, res, next) {
   try {
     const authHeader = req.headers.authorization;
 
-    console.log("Authorization recebido:", authHeader);
-
     if (!authHeader) {
       return res.status(401).json({
         message: "Token não informado.",
@@ -13,8 +11,6 @@ function authMiddleware(req, res, next) {
     }
 
     const token = authHeader.split(" ")[1];
-
-    console.log("Token recebido.");
 
     if (!token) {
       return res.status(401).json({
@@ -24,7 +20,6 @@ function authMiddleware(req, res, next) {
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-    console.log("Token decodificado:");
 
     req.usuario = decoded;
 

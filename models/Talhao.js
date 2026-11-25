@@ -1,11 +1,12 @@
+
 const { DataTypes } = require("sequelize");
 const sequelize = require("../src/config/database");
 
 const Talhao = sequelize.define("Talhao", {
   _id: {
     type: DataTypes.STRING,
+    primaryKey: true,
     allowNull: false,
-    unique: true,
   },
 
   projetoTalhao: {
