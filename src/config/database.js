@@ -1,4 +1,5 @@
-const { Sequelize } = require("sequelize")
+const { Sequelize } = require("sequelize");
+const fs = require("fs");
 
 const sequelize = new Sequelize(
   process.env.DB_NAME,
@@ -9,7 +10,14 @@ const sequelize = new Sequelize(
     port: process.env.DB_PORT,
     dialect: "mysql",
     logging: false,
-  }
+
+    dialectOptions: {
+      ssl: {
+        ca: fs.readFileSync("C:/TiDB/isrgrootx1.pem"),
+        rejectUnauthorized: true,
+      },
+    },
+  },
 );
 
 module.exports = sequelize;
