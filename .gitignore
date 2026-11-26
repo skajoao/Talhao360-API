@@ -17,6 +17,7 @@ yarn-error.log*
 .env.local
 .env.*.local
 *.pem
+!isrgrootx1.pem
 secrets.yml
 
 # Dependências (Exemplo: Node.js)

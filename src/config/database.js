@@ -13,7 +13,7 @@ const sequelize = new Sequelize(
 
     dialectOptions: {
       ssl: {
-        ca: fs.readFileSync("C:/TiDB/isrgrootx1.pem"),
+        ca: fs.readFileSync("./isrgrootx1.pem"),
         rejectUnauthorized: true,
       },
     },
